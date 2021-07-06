@@ -1,0 +1,11 @@
+[package]
+name = "SNiPpers"
+version = "0.1.0"
+authors = ["Max Hargreaves <whargrea@uoguelph.ca>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rust-htslib = "0.36.0"
+clap = { version = "2.33.3", features = ["yaml"] }

@@ -1,0 +1,11 @@
+name: SNiPpers
+version: "0.0.1"
+author: Max Hargreaves <whargrea@uoguelph.ca>
+about: Prunes SNP markers
+args:
+    - vcf:
+        short: v
+        long: vcf
+        help: vcf format file to prune
+        required: true
+        takes_value: true
