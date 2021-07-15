@@ -9,3 +9,4 @@ edition = "2018"
 [dependencies]
 rust-htslib = "0.38.2"
 clap = { version = "2.33.3", features = ["yaml"] }
+rayon = "1.5.1"
