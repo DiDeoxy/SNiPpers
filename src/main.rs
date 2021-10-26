@@ -43,7 +43,9 @@ fn main() {
         }
     }
 
-    let cont_hm_post_maf_vec: HashMap<String, Vec<(usize, f64)>> = cont_hm_postn_vec_geno_vec
+    let min_maf = 0.05;
+
+    let cont_hm_postn_maf_vec: HashMap<String, Vec<(usize, f64)>> = cont_hm_postn_vec_geno_vec
         .iter()
         .map(|(cont, (postn_vec, geno_vec))| {
             let postn_maf: Vec<(usize, f64)> = postn_vec
@@ -75,13 +77,29 @@ fn main() {
                     let maf = geno_counts.0.min(geno_counts.1) as f64 / num_called_alleles;
                     (postn.clone(), maf.clone())
                 })
-                .filter(|(_, maf)| *maf > 0.05)
+                .filter(|(_, maf)| *maf >= min_maf)
                 .collect();
             println!("{:?}", postn_maf);
             (cont.clone(), postn_maf.clone())
         })
         .collect();
 
+        let pane = 10;
+
+        let tbd = cont_hm_postn_maf_vec
+            .iter()
+            .map(|(cont, postn_maf_vec)| {
+                let tbd2 = postn_maf_vec
+                    .par_iter()
+                    .enumerate()
+                    .map(|(i, (postn, maf))| {
+                        if i < pane {
+                            
+                        }
+                    })
+                    .collect();
+            })
+            .collect();
     
 
 
